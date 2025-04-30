@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]){
 
 
 	if(argc == 2){
-		/*./devtext <filename> checks if the filename exists already or not, else create new file*/
+		/*./redit <filename> checks if the filename exists already or not, else create new file*/
 		strcpy(filename, argv[1]);
 		if(fileexist(argv[1])){
 			fd = open(argv[1], O_RDWR );
@@ -49,14 +49,14 @@ int main(int argc, char const *argv[]){
 	}
 	else if(argc == 1){
 
-		/*./devtext i.e. open an empty file, initially the data is in buffer unless the file saved*/
+		/*./redit i.e. open an empty file, initially the data is in buffer unless the file saved*/
 
 		newfl = 1;
 		bf->line[0]='\n';
 		bf->num_chars = 1;
 	}
 	else{
-		printf("USAGE: ./devtext <filename> or ./devtext\n");
+		printf("USAGE: ./redit <filename> or ./redit\n");
 		bufDestroy(bf);
 
 		return 0;
@@ -76,7 +76,7 @@ int main(int argc, char const *argv[]){
 	/* HELP MENU */
 	
 	attron(COLOR_PAIR(1));
-	mvprintw(ht/2 - 7, wd/2 -  17, "WELCOME TO DEVTEXT");
+	mvprintw(ht/2 - 7, wd/2 -  17, "WELCOME TO REDIT");
 	attroff(COLOR_PAIR(1));
 	attron(COLOR_PAIR(2));
 	mvprintw(ht/2 - 5, wd/2 - 17, "CTRL+S OR F2 :  SAVE");
@@ -755,7 +755,7 @@ int main(int argc, char const *argv[]){
 			case KEY_F(10):
 				clear();
 				attron(COLOR_PAIR(1));
-				mvprintw(ht/2 - 7, wd/2 -  17, "WELCOME TO DEVTEXT");
+				mvprintw(ht/2 - 7, wd/2 -  17, "WELCOME TO REDIT");
 				attroff(COLOR_PAIR(1));
 				attron(COLOR_PAIR(2));
 				mvprintw(ht/2 - 5, wd/2 - 17, "CTRL+S OR F2 :  SAVE");
