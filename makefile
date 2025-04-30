@@ -1,8 +1,11 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -pedantic -ggdb
-TARGET = redit
-SRC = src/main.c src/renderer.c
 LDFLAGS = -lncurses
+SRC = src/main.c src/buffer.c src/gui_ncs.c src/buffer.h src/gui_ncs.h
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC) $(LDFLAGS)
+
+redit: $(SRC)
+	$(CC) $(CCFLAGS) -o redit $(SRC) $(LDFLAGS)
+
+clean:
+	rm -rf redit

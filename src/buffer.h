@@ -1,5 +1,20 @@
 #ifndef BUFFER_H
-#define BUFFER_H
+#define BUFFER_H 
+
+/*debugging FUNCTION-MACRO*/
+#define INFO printf("\nline %d : %s : %s\n", __LINE__, __FILE__, __func__)
+
+/*
+ * increase the value to your screen width as shown on 
+ * devtext start screen for full width experience
+*/
+
+#define LINEMAX 180
+
+#define TRUE 1
+#define FALSE 0
+
+
 
 typedef struct buffer{
 	struct buffer *next;
@@ -10,6 +25,37 @@ typedef struct buffer{
 	int curX;
 	char *line;
 
-} buffer;
+}buffer;
+
+void bufInit(buffer *bf);
+void bufDestroy(buffer *bf);
+
+void bufSave(int fd, buffer *bf);
+void bufLoad(int fd, buffer *bf);
+
+void bufCreateNext(buffer *bf);
+void bufInsert(buffer *bf);
+
+void bufCpy(buffer *source, buffer *dest);
+void bufSearch(buffer *bf, char *search);
+void bufReplace(buffer *bf, char *search, char *replace);
+
+void bufPrintAll(buffer *bf);
+
+void lineInsert(buffer *bf, int loc, char ch);
+buffer* lineRemove(buffer *bf, int y, int x);
+
+int lineSearch(char *search);
+int lineReplace(char *search, char *replace);
+
+void lineInit(buffer *bf);
+void linePrint(buffer *bf);
+int lineFull(buffer *bf);
+int lineEmpty(buffer *bf);
+
+void bufIncr(buffer *bf, int val);
+void bufDecr(buffer *bf, int val);
+
+int fileexist(char const *filename);
 
 #endif
