@@ -1,4 +1,5 @@
-#include <errno.h>
+#include "buffer.h"
+#include "gui_ncs.h"
 #include <fcntl.h>
 #include <ncurses.h>
 #include <stdio.h>
@@ -7,9 +8,6 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-
-#include "buffer.h"
-#include "gui_ncs.h"
 
 int main(int argc, char const *argv[]) {
 
