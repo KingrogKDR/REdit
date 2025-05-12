@@ -606,8 +606,10 @@ int main(int argc, char const *argv[]) {
       move(y, bf->curX = x = x + strlen(copybuf));
       loadwin(start, 0);
       break;
+#include <errno.h>
 
-    case 19:       /*ctrl+S*/
+
+    case 19:      /*ctrl+S*/
     case KEY_F(2): /*save*/
       move(ht - 1, 0);
       clrtoeol();
@@ -681,7 +683,6 @@ int main(int argc, char const *argv[]) {
       mvprintw(ht / 2 - 0, wd / 2 - 17, "CTRL+X OR F7 :  CUT");
       mvprintw(ht / 2 + 1, wd / 2 - 17, "CTRL+C OR F8 :  COPY");
       mvprintw(ht / 2 + 2, wd / 2 - 17, "CTRL+V OR F9 :  PASTE");
-      mvprintw(ht / 2 + 3, wd / 2 - 17, "CTRL+N       :  CHANGE TEXT COLOR");
       mvprintw(ht / 2 + 4, wd / 2 - 17, "CTRL+H OR F10 : SHOW HELP WINDOW");
       attroff(COLOR_PAIR(2));
       attron(COLOR_PAIR(1));
