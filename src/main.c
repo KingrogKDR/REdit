@@ -606,10 +606,8 @@ int main(int argc, char const *argv[]) {
       move(y, bf->curX = x = x + strlen(copybuf));
       loadwin(start, 0);
       break;
-#include <errno.h>
 
-
-    case 19:      /*ctrl+S*/
+    case 19:       /*ctrl+S*/
     case KEY_F(2): /*save*/
       move(ht - 1, 0);
       clrtoeol();
@@ -646,10 +644,6 @@ int main(int argc, char const *argv[]) {
         mvscanw(ht - 1, strlen("Enter File name: "), "%[^\n]s", filename);
         noecho();
         attroff(COLOR_PAIR(1));
-        if ((fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRWXU)) == -1) {
-          perror("Save Error: ");
-          return 0;
-        }
         refresh();
         loadwin(start, 0);
         move(y, x);
