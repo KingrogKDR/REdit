@@ -1,0 +1,6 @@
+Hi!
+This is REdit.
+A terminal-based text editor
+
+
+
